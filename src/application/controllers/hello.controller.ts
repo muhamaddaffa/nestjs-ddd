@@ -26,6 +26,13 @@ export class HelloController {
     return await this.userService.find();
   }
 
+  @Get('/books')
+  async getBooks(): Promise<User[]> {
+    const context: Context = { module: 'HelloController', method: 'getAll' };
+    this.Log.logger('Hello World!', context);
+    return await this.userService.find();
+  }
+
   @Post('/')
   async create(@Body() user: CreateUserDto): Promise<User> {
     const context: Context = { module: 'HelloController', method: 'create' };
